@@ -17,22 +17,45 @@ export default function Header() {
   return (
     <header className="flex w-full px-4 py-2 justify-center absolute bg-white40 backdrop-blur-sm">
       <main className="flex w-full max-w-2xl justify-between items-center">
-        <h1 className={alata.className + " text-lg cursor-pointer"}>PODCAST NAME</h1>
+        <h1 className={alata.className + " text-lg cursor-pointer"}>
+          PODCAST NAME
+        </h1>
 
         <div className="md:flex hidden direction-row gap-4 items-center ">
-          <Button radius="sm" className="bg-transparent w-fit min-w-0 h-fit p-2" key="Episodes">
-            Episodes
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Episodes"
+          >
+            <span className={sourceSerif.className}>Episodes</span>
           </Button>
-          <Button radius="sm" className="bg-transparent w-fit min-w-0 h-fit p-2" key="Blog">
-            Blog
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Blog"
+          >
+            <span className={sourceSerif.className}>Blog</span>
           </Button>
-          <Button radius="sm" className="bg-transparent w-fit min-w-0 h-fit p-2" key="Contact">
-            Contact
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Contact"
+          >
+            <span className={sourceSerif.className}>Contact</span>
           </Button>
-          <Button radius="sm" className="bg-transparent w-fit min-w-0 h-fit p-2" key="Donate">
-            Donate
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Donate"
+          >
+            <span className={sourceSerif.className}>Donate</span>
           </Button>
-          <Button isIconOnly radius="sm" className=" bg-transparent" key="Search">
+          <Button
+            isIconOnly
+            radius="sm"
+            className=" bg-transparent"
+            key="Search"
+          >
             <img src="../search.svg" alt="" />
           </Button>
         </div>
