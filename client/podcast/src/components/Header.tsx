@@ -15,7 +15,7 @@ const sourceSerif = Source_Serif_4({ subsets: ["latin"], weight: "400" });
 
 export default function Header() {
   return (
-    <header className="flex w-full px-4 py-2 justify-center absolute bg-white40 backdrop-blur-sm">
+    <header className="flex w-full px-4 py-2 justify-center fixed top-0 z-30 bg-white40 backdrop-blur-sm">
       <main className="flex w-full max-w-2xl justify-between items-center">
         <h1 className={alata.className + " text-lg cursor-pointer"}>
           PODCAST NAME
@@ -61,7 +61,7 @@ export default function Header() {
         </div>
 
         <Dropdown
-          className="shadow-none text-black bg-white40 backdrop-blur-sm min-w-32 md:hidden flex"
+          className="shadow-none text-black bg-white40 min-w-32 md:hidden flex"
           placement="bottom-end"
           radius="sm"
         >
@@ -70,7 +70,7 @@ export default function Header() {
               <img src="../menu.svg" alt="" />
             </Button>
           </DropdownTrigger>
-          <DropdownMenu classNames={{ list: "gap-4" }} aria-label="Pages">
+          <DropdownMenu classNames={{ list: "gap-4 " }} aria-label="Pages">
             <DropdownItem
               className={sourceSerif.className + " text-right text-sm p-0 px-3"}
               variant="light"
