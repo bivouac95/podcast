@@ -61,7 +61,7 @@ export default function Header() {
         </div>
 
         <Dropdown
-          className="shadow-none text-black bg-white40 min-w-32 md:hidden flex"
+          className="shadow-none text-black bg-white min-w-32 md:hidden flex"
           placement="bottom-end"
           radius="sm"
         >

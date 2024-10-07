@@ -10,28 +10,43 @@ const sourceSerif = Source_Serif_4({
 });
 
 const smallText = sourceSerif.className + " text-sm text-gray p-0";
+const smallBlackText = sourceSerif.className + " text-sm text-black p-0";
 const normalText = sourceSerif.className + " text-base text-black p-0";
 const bigText = sourceSerif.className + " text-2xl text-black font-medium p-0";
 
-export default function Home() {
-  let episode_name = "Big juicy Episode Name";
-  let episode_date = new Date("2022-01-08");
-  let episode_number = 1;
-  let is_latest = true;
-  let image_url =
-    "https://images.unsplash.com/photo-1727619784641-db497cc6da32?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+interface PlayerProps {
+  episodeName: string;
+  episodeDate: Date;
+  episodeNumber: number;
+  isLatest: boolean;
+  imageUrl: string;
+}
+
+export default function Home({
+  episodeName,
+  episodeDate,
+  episodeNumber,
+  isLatest,
+  imageUrl,
+}: PlayerProps) {
   return (
     <section className="flex flex-col gap-8 items-center w-full">
       <div className="flex flex-col gap-4 items-center w-fit">
-        <span className={smallText}>Latest episode</span>
-        <Image src={image_url} alt={episode_name} width={180} height={180} radius="sm" />
+        <span className={isLatest ? smallText : "hidden"}>Latest episode</span>
+        <Image
+          src={imageUrl}
+          alt={episodeName}
+          width={180}
+          height={180}
+          radius="sm"
+        />
       </div>
 
       <section className="flex flex-col gap-4 items-center w-fit">
-        <h3 className={bigText}>{episode_name}</h3>
+        <h3 className={bigText}>{episodeName}</h3>
         <span
           className={smallText}
-        >{`Episode ${episode_number} | ${episode_date.toLocaleDateString()} | By VitaThemes`}</span>
+        >{`Episode ${episodeNumber} | ${episodeDate.toLocaleDateString()} | By VitaThemes`}</span>
       </section>
 
       <div className="flex direction-row gap-4 items-center box-border w-full">
@@ -39,22 +54,58 @@ export default function Home() {
           <img src="../play.svg" alt="" />
         </Button>
         <span className={smallText}>0:00</span>
-        <Progress aria-label="Played progress" value={1} className= "min-w-5 w-full" />
+        <Progress
+          aria-label="Played progress"
+          value={1}
+          size="sm"
+          // className="min-w-5 w-full"
+          classNames={{
+            base: "min-w-5 w-full",
+            track: "bg-light",
+            indicator: "bg-black",
+          }}
+        />
         <span className={smallText}>15:00</span>
         <Button isIconOnly radius="sm" className=" bg-transparent" key="Volume">
           <img src="../volume.svg" alt="" />
         </Button>
-        <Button isIconOnly radius="sm" className=" bg-transparent" key="Download">
+        <Button
+          isIconOnly
+          radius="sm"
+          className=" bg-transparent"
+          key="Download"
+        >
           <img src="../download.svg" alt="" />
         </Button>
       </div>
 
-      <div className="flex flex-col gap-3 items-center w-fit">
-        <span className={normalText}>LISTEN ON</span>
+      <div className="flex flex-col gap-1 items-center w-fit">
+        <span className={smallBlackText}>Listen on</span>
         <nav className="flex direction-row gap-4 items-center">
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Spotify"
+            isIconOnly
+          >
             <img src="../spotify.svg" alt="" />
+          </Button>
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Soundcloud"
+            isIconOnly
+          >
             <img src="../soundcloud.svg" alt="" />
+          </Button>
+          <Button
+            radius="sm"
+            className="bg-transparent w-fit min-w-0 h-fit p-2 text-black text-sm"
+            key="Apple Music"
+            isIconOnly
+          >
             <img src="../apple.svg" alt="" />
+          </Button>
         </nav>
       </div>
     </section>

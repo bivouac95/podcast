@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         white: "var(--background)",
-        white40: "rgba(253, 253, 253, 0.5)",
+        white40: "rgba(253, 253, 253, 0.85)",
         black: "var(--foreground)",
         gray: "#979797",
         light: "#f5f5f7",
